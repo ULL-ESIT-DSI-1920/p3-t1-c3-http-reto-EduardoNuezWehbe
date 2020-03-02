@@ -1,4 +1,6 @@
-
+/**
+ * creating http and fs object.
+ */
 
 var http = require("http"), fs = require("fs");
 
