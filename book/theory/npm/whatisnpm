@@ -1,0 +1,5 @@
+online repository of JavaScript Modules  many of which are specifically written for Node.
+
+When you install Node on your computer, you also get a program called npm, which provides a convenient interface to this repository.
+
+one module you will find on NPM is figlet, which can convert text into ASCII art

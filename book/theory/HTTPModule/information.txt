@@ -1,0 +1,3 @@
+module http provides functionality for running HTTP servers and making requests
+
+in basic server we have an example of how to start a new one in our local host. 

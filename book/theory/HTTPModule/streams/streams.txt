@@ -1,0 +1,13 @@
+Writable streams are a widely used concept in Node interfaces. 
+All writable streams have a write method, which can be passed a string or a Buffer object. 
+Their end method closes the stream and, if given an argument, 
+will also write out a piece of data before it does so. 
+Both of these methods can also be given a callback as an additional argument, 
+which they will call when the writing to or closing of the stream has finished.
+
+
+it is possible to create a writable stream that points at a file with the 
+fs.createWriteStream function
+
+Readable streams are a little more involved. Both the request variable that was passed to the HTTP server’s 
+callback function and the response variable passed to the HTTP client are readable streams.
