@@ -11,3 +11,9 @@ fs.createWriteStream function
 
 Readable streams are a little more involved. Both the request variable that was passed to the HTTP server’s 
 callback function and the response variable passed to the HTTP client are readable streams.
+
+Objects that emit events in Node have a method called on that is similar to the addEventListener method in 
+the browser.
+
+Readable streams have "data" and "end" events. The first is fired every time some data comes in, and the second 
+is called whenever the stream is at its end. fs.createReadStream

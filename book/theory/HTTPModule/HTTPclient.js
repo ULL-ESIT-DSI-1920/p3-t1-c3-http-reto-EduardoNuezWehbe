@@ -10,3 +10,9 @@ var request = http.request({
 });
 request.end();
 
+
+/*
+  response object we saw in the server, the object returned by request allows us to stream data into 
+  the request with the write method and finish the request with the end method. 
+  The example does not use write because GET requests should not contain data in their request body.  
+*/

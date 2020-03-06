@@ -1,0 +1,2 @@
+When we treat files as http resources, the http methods get,put and delete
+can be used to read, write and delete the files.

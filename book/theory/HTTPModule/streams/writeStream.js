@@ -9,3 +9,7 @@ var request = http.request({
   });
 });
 request.end("Hello server");
+
+
+//envia de vuelta si el servirdor esta funcionando hello server 
+//ademas si enviamos argumentos se nos mostraran tambien

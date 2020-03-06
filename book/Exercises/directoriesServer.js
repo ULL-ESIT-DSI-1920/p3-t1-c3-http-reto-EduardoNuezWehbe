@@ -105,6 +105,7 @@ methods.PUT = function(path, respond, request) {
  */
 methods.MKCOL = function(path,respond) {
   
+
   fs.mkdir(path, function(err){
     if(err){
         console.log("failed to create director");
