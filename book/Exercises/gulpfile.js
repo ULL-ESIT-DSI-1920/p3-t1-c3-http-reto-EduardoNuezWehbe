@@ -18,4 +18,3 @@ var gulp = require("gulp");
   gulp.task("Doc", shell.task("npm run generate-docs"))
 
 
-  //node module, readme.md gulpfile doc, doc, insomnia

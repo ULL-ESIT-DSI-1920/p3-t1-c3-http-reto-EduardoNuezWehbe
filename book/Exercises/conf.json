@@ -1,4 +1,5 @@
 {
+    
     "source": {
         "includePattern": ".+\\.js(doc|x)?$",  
         "include": ["."],                       

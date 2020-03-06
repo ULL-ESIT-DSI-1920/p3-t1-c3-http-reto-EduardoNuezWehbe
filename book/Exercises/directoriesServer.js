@@ -85,7 +85,6 @@ methods.DELETE = function(path, respond) {
 };
 
 /**
- * 
  * controls if an exception appear
  * @param {string} respond return an error or end of function
  */
