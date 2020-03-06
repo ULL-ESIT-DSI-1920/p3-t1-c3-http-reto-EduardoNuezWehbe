@@ -15,10 +15,7 @@ var gulp = require("gulp");
   gulp.task("put", shell.task("curl -v -X PUT -d 'Bye world!' http://localhost:8000/file.txt"));
   gulp.task("del", shell.task("curl -v -X DELETE http://localhost:8000/file.txt"))
   gulp.task("dir", shell.task("curl -v -X MKCOL http://localhost:8000/directorio"))
-<<<<<<< HEAD
+  gulp.task("Doc", shell.task("npm run generate-docs"))
 
 
   //node module, readme.md gulpfile doc, doc, insomnia
-=======
-  gulp.task("Doc", shell.task("npm run generate-docs"))
->>>>>>> arreglos
