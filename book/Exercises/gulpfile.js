@@ -15,4 +15,4 @@ var gulp = require("gulp");
   gulp.task("put", shell.task("curl -v -X PUT -d 'Bye world!' http://localhost:8000/file.txt"));
   gulp.task("del", shell.task("curl -v -X DELETE http://localhost:8000/file.txt"))
   gulp.task("dir", shell.task("curl -v -X MKCOL http://localhost:8000/directorio"))
-  gulp.task("Doc", shell.task("jsdoc directoriesServer.js"))
+  gulp.task("Doc", shell.task("npm run generate-docs"))

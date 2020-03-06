@@ -30,6 +30,7 @@ http.createServer(function(request, response) {
 
 /**
  * Gets the url to path
+ * @urlToPath 
  */
 
 function urlToPath(url) {
@@ -38,8 +39,11 @@ function urlToPath(url) {
 }
 /**
  * we evaluate if the argv received is a GET, if it is, we will show what do we have on
- * our actuall directory of the server
+ * our actual directory of the server
+ * @path {String} verify if a file exist
  */
+
+ 
 methods.GET = function(path, respond) {
   fs.stat(path, function(error, stats) {
     if (error && error.code == "ENOENT")
@@ -59,9 +63,11 @@ methods.GET = function(path, respond) {
   });
 };
 /**
- * Delete will remove the file that we selected in our path (local path...)
+ * Removes a file with a specific path
+ * @path {String} file or directory to delete
+ * @respond {} repond us with an error message or nothing
+ * @stats {string} evaluate if is a file or directory
  */
-
 methods.DELETE = function(path, respond) {
   fs.stat(path, function(error, stats) {
     if (error && error.code == "ENOENT")
@@ -88,6 +94,8 @@ function respondErrorOrNothing(respond) {
 }
 /**
  * write in the path received on argv. If it has information, clean it and write
+ * @path {String} file to overwrite 
+ * @outStream {String} new text for the file
  */
 
 methods.PUT = function(path, respond, request) {
@@ -102,6 +110,7 @@ methods.PUT = function(path, respond, request) {
 };
 /**
  * create a new directory on the server path.
+ * @path {String} name of our new directory
  */
 methods.MKCOL = function(path,respond) {
   
