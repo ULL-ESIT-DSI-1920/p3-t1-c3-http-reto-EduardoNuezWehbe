@@ -1,16 +1,18 @@
 /**
  * creating http and fs object.
  */
-
+/**
+ * @param {} http has the module http
+ * @param {} fs has the module fs
+ * @param {} methods is an empty object 
+ */
 var http = require("http"), fs = require("fs");
-
 var methods = Object.create(null); //will store the functions that handle the various HTTP methods
 
 /**
- * this code, generate our http server, where we receive a request and response.
- * it will be waiting for the clients answers
+ * @param {string} request variable that is waiting for a request of the client
+ * @param {string} response variable that is waiting for give a reponse to the clients request
  */
-
 http.createServer(function(request, response) {
   function respond(code, body, type) {
     if (!type) type = "text/plain";
@@ -28,11 +30,11 @@ http.createServer(function(request, response) {
             " not allowed.");
 }).listen(8000);
 
-/**
- * Gets the url to path
- * @urlToPath 
- */
 
+/**
+ * funtion to retunr a path
+ * @param {String} url convert url to path
+ */
 function urlToPath(url) {
   var path = require("url").parse(url).pathname;
   return "." + decodeURIComponent(path);
@@ -40,10 +42,8 @@ function urlToPath(url) {
 /**
  * we evaluate if the argv received is a GET, if it is, we will show what do we have on
  * our actual directory of the server
- * @path {String} verify if a file exist
+ *
  */
-
- 
 methods.GET = function(path, respond) {
   fs.stat(path, function(error, stats) {
     if (error && error.code == "ENOENT")
@@ -64,9 +64,9 @@ methods.GET = function(path, respond) {
 };
 /**
  * Removes a file with a specific path
- * @path {String} file or directory to delete
- * @respond {} repond us with an error message or nothing
- * @stats {string} evaluate if is a file or directory
+ * @param {String} pathfile or directory to delete
+ * @param {string} respond us with an error message or nothing
+ * @param {string} stats evaluate if is a file or directory
  */
 methods.DELETE = function(path, respond) {
   fs.stat(path, function(error, stats) {
@@ -80,10 +80,12 @@ methods.DELETE = function(path, respond) {
       fs.unlink(path, respondErrorOrNothing(respond));
   });
 };
-/**
- * controls if an exception appear
- */
 
+/**
+ * 
+ * controls if an exception appear
+ * @param {string} respond return an error or end of function
+ */
 function respondErrorOrNothing(respond) {
   return function(error) {
     if (error)
@@ -94,10 +96,9 @@ function respondErrorOrNothing(respond) {
 }
 /**
  * write in the path received on argv. If it has information, clean it and write
- * @path {String} file to overwrite 
- * @outStream {String} new text for the file
+ * @param {String} path file to overwrite 
+ * @param {String} outStream new text for the file
  */
-
 methods.PUT = function(path, respond, request) {
   var outStream = fs.createWriteStream(path);
   outStream.on("error", function(error) {
@@ -110,7 +111,7 @@ methods.PUT = function(path, respond, request) {
 };
 /**
  * create a new directory on the server path.
- * @path {String} name of our new directory
+ * @param {String} path name of our new directory
  */
 methods.MKCOL = function(path,respond) {
   
@@ -124,10 +125,7 @@ methods.MKCOL = function(path,respond) {
     }
 });
 };
-
-
-
-//respong function is passed to the functios that handle various methods and
+//respond function is passed to the functios that handle various methods and
 //acts as callback to finish the request. It takes an http status code, a body,
 //and optionally a content type as arguments. If value passed as the body is a readable stream,
 //it will have a pipe method, wich is used to forward a readable stream to a 
